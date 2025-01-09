@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ICD/CPT Code Recommender</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <header>
+        <div class="logo">AutoRCM</div>
+      </header>
+      <div class="container">
+        <h1>ICD/CPT Code Recommender</h1>
+        <textarea id="ehrSummary" placeholder="Paste EHR/EMR summary here"></textarea>
+        <button id="recommendButton">Recommend Codes</button>
+        <div id="recommendations">
+          <div class="icd-recommendations"></div>
+          <div class="cpt-recommendations"></div>
+        </div>
+      </div>
+      <script src="script.js"></script>
+    </body>
+    </html>
