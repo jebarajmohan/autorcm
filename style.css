@@ -1,0 +1,184 @@
+body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #333;
+    }
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .container {
+      padding: 20px;
+      max-width: 75%;
+      margin: 50px auto;
+      background-color: white;
+      border-radius: 25px;
+      display: flex;
+      flex-direction: column;
+    }
+    @media (min-width: 768px) {
+      .container {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    h1 {
+      color: #007BFF;
+      text-align: left;
+      margin-bottom: 5px;
+      margin-left: 20px;
+      font-size: 1.2em;
+    }
+    textarea {
+      width: 100%;
+      max-width: 100%;
+      height: 150px;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      box-sizing: border-box;
+      color: #333333;
+      font-size: 0.9em;
+    }
+    button {
+      padding: 12px 20px;
+      cursor: pointer;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      margin-left: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      color: #666666;
+      cursor: not-allowed;
+    }
+    #recommendations {
+      margin-top: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      display: none;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    #recommendations .icd-recommendations,
+    #recommendations .cpt-recommendations {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    #recommendations h3 {
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+    
+    #recommendations ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    #recommendations li {
+      padding: 5px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    #recommendations li:last-child {
+      border-bottom: none;
+    }
+    .input-area {
+      display: flex;
+      flex-direction: column;
+    }
+    .sample-data-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 75px;
+      gap: 20px;
+      flex-wrap: wrap;
+      background-color: white;
+      padding: 10px;
+      border-radius: 8px;
+			align-content: center;
+    }
+    .sample-data-box {
+      flex: 1;
+      margin: 0 auto 30px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: white;
+      margin-bottom: 70px;
+      position: relative;
+      font-size: 0.7em;
+    }
+    .sample-data-box .sample-data-content {
+      text-align: left;
+      margin-top: 8px;
+      font-size: 0.9em;
+      white-space: pre-line;
+    }
+    .sample-data-box .copy-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      cursor: pointer;
+      font-size: 1.2em;
+      color: #007BFF;
+    }
+    .sample-data-box .copy-button::before {
+      content: '\f0c5';
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+    @media (max-width: 767px) {
+      .sample-data-container {
+        flex-direction: column;
+      }
+      .sample-data-container > .sample-data-box {
+        margin-right: 0;
+        margin-left: 0;
+        width: 90%;
+        max-width: 90%;
+      }
+      .sample-data-box .sample-data-content {
+        white-space: normal;
+      }
+    }
+    .sample-data-container h4 {
+      text-align: center;
+      margin-bottom: 0px;
+      color: #999;
+      font-size: 1.2em;
+      width: 100%;
+      font-weight: normal;
+    }
+    .sample-data-box b {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+    @media (max-width: 767px) {
+      .sample-data-container h4 {
+        text-align: center;
+      }
+    }

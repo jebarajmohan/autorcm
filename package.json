@@ -1,0 +1,11 @@
+{
+      "name": "icd-cpt-recommendation",
+      "version": "1.0.0",
+      "description": "Web page for recommending ICD and CPT codes",
+      "scripts": {
+            "dev": "vite"
+      },
+      "devDependencies": {
+            "vite": "^4.5.5"
+      }
+}

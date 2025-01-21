@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ICD/CPT Code Recommender</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body>
+      <header>
+        <div class="logo">AutoRCM</div>
+        <div style="margin-left: auto; font-size: 0.8em; color: white;">This marks our priority P0 product launch.</div>
+      </header>
+      <div class="container">
+        <div class="input-area">
+          <p style="text-align: center; color: #777; font-size: 1.2em; white-space: pre-line;">We are developing an AI-powered autonomous medical coding engine designed to analyze doctors' medical notes and seamlessly convert them into ICD/CPT codes</p>
+          <h1 style="text-align: left; margin-left: 20px;">ICD/CPT Code Recommender</h1>
+          <textarea id="ehrSummary" placeholder="Try generating the Medical Codes by entering Medical notes in this box..." style="color: #333333; font-size: 0.9em;"></textarea>
+          <div style="display: flex; gap: 10px;">
+            <button id="recommendButton" disabled>Recommend Codes</button>
+            <button id="clearButton" disabled>Clear</button>
+          </div>
+          <div id="recommendations">
+            <div class="icd-recommendations"></div>
+            <div class="cpt-recommendations"></div>
+          </div>
+        </div>
+      </div>
+       <div class="sample-data-container" style="margin-top: 75px;">
+          <h4 style="text-align: center; margin-bottom: 0px; color: #999; font-size: 1.2em; width: 100%; font-weight: normal;">Feel free to use the sample doctor notes below to get started, if you'd like.</h4>
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+            
+						<div class="sample-data-box" style="flex: 1; margin-right: 80px; margin-bottom: 30px;" data-sample="Doctor's Summary\nPatient Name: Rahul Verma\nDate of Birth: July 15, 1975\nVisit Date: December 31, 2024\nPhysician: Dr. Priya Mehta\nMedical Record Number: 23456789\n\nChief Complaint\nThe patient presents with epigastric pain and nausea for the past 2 weeks, associated with bloating and belching.\n\nHistory of Present Illness\nThe patient is a 49-year-old male with a history of acid reflux. He reports that symptoms worsened after a recent vacation where he consumed spicy food. The patient has been self-medicating with antacids, but the symptoms persist.\nNo significant weight loss. The patient denies vomiting or black stools.\n\nPast Medical History\nGastrointestinal disorders: History of acid reflux.\nMedications: Over-the-counter antacids, occasionally uses omeprazole.\nAllergies: Penicillin.\nSurgeries: None.\n\nPhysical Examination\nGeneral: Mild discomfort but stable.\nAbdomen: Epigastric tenderness, no rebound tenderness.\nVitals:\nBlood pressure: 125/80 mmHg\nPulse: 82 bpm\nTemperature: 98.7°F\nRespiratory Rate: 18 breaths per minute\n\nAssessment\nDiagnosis: Likely gastric ulcer due to NSAID use and reflux.\nComplications: No signs of active bleeding.\n\nPlan\nInvestigations:\nUpper Endoscopy (EGD) to visualize the ulcer and check for complications.\nCBC to rule out anemia.\nH. pylori Testing: Stool antigen or urea breath test.\nMedications:\nContinue omeprazole 20 mg daily.\nDiscontinue NSAIDs.\nIron supplements as needed if anemia is confirmed.\nLifestyle & Diet:\nAvoid spicy, acidic foods.\nAvoid NSAIDs and alcohol.">
+              <b>Sample 1:</b> <br> <br>Gastric Ulcer with Acid Reflux
+              <span class="copy-button" onclick="copySample(this)"></span>
+              <div class="sample-data-content"></div>
+            </div>
+						
+            <div class="sample-data-box" style="flex: 1; margin-right: 80px; margin-bottom: 30px;" data-sample="Doctor's Summary\nPatient Name: Emily Carter\nDate of Birth: April 8, 1992\nVisit Date: December 28, 2024\nPhysician: Dr. Sarah Lee\nMedical Record Number: 98765432\n\nChief Complaint\nThe patient presents with a persistent cough and fever for the past 5 days.\n\nHistory of Present Illness\nThe patient is a 32-year-old female who reports a gradual onset of cough, initially dry but now productive with yellow sputum. She also reports a fever, with a maximum temperature of 101.5°F. She denies any shortness of breath or chest pain.\n\nPast Medical History\nRespiratory Disorders: History of mild asthma.\nMedications: Uses an albuterol inhaler as needed.\nAllergies: No known allergies.\nSurgeries: None.\n\nPhysical Examination\nGeneral: Mildly ill-appearing, but alert and oriented.\nLungs: Scattered rhonchi and wheezing.\nVitals:\nBlood pressure: 120/78 mmHg\nPulse: 96 bpm\nTemperature: 100.8°F\nRespiratory Rate: 20 breaths per minute\n\nAssessment\nDiagnosis: Acute bronchitis, possible viral or bacterial infection.\nComplications: No signs of pneumonia.\n\nPlan\nInvestigations:\nChest X-ray (CPT code 71045) to rule out pneumonia.\nInfluenza and RSV testing (CPT code 87500).\nMedications:\nAlbuterol inhaler as needed.\nConsider antibiotics if symptoms worsen or if bacterial infection is suspected.\nLifestyle & Diet:\nRest and hydration.\nAvoid irritants like smoke.\n">
+              <b>Sample 2:</b> <br> <br>Acute Bronchitis
+              <span class="copy-button" onclick="copySample(this)"></span>
+              <div class="sample-data-content"></div>
+            </div>
+						
+            <div class="sample-data-box" style="flex: 1; margin-bottom: 30px;" data-sample="Doctor's Summary\nPatient Name: David Miller\nDate of Birth: June 20, 1970\nVisit Date: December 30, 2024\nPhysician: Dr. Michael Chen\nMedical Record Number: 56789012\n\nChief Complaint\nThe patient presents with severe lower back pain after a fall.\n\nHistory of Present Illness\nThe patient is a 54-year-old male who fell from a ladder while cleaning gutters. He reports immediate onset of severe lower back pain, radiating to his left leg. He denies any loss of consciousness or head injury.\n\nPast Medical History\nMusculoskeletal Disorders: History of chronic lower back pain.\nMedications: Uses ibuprofen as needed.\nAllergies: No known allergies.\nSurgeries: None.\n\nPhysical Examination\nGeneral: Alert and oriented, in significant pain.\nMusculoskeletal: Tenderness in the lumbar spine, limited range of motion, positive straight leg raise test on the left.\nVitals:\nBlood pressure: 135/85 mmHg\nPulse: 88 bpm\nTemperature: 98.4°F\nRespiratory Rate: 18 breaths per minute\n\nAssessment\nDiagnosis: Acute lumbar strain with possible radiculopathy.\nComplications: No signs of spinal cord compression.\n\nPlan\nInvestigations:\nLumbar spine X-ray (CPT code 72100) to rule out fracture.\nConsider MRI if symptoms persist (CPT code 72148).\nMedications:\nIbuprofen 600 mg every 6 hours as needed.\nMuscle relaxant if needed.\nPhysical therapy referral (CPT code 97110).\nLifestyle & Diet:\nRest and avoid heavy lifting.\n">
+              <b>Sample 3:</b> <br> <br>Acute Lumbar Strain
+              <span class="copy-button" onclick="copySample(this)"></span>
+              <div class="sample-data-content"></div>
+            </div>
+          </div>
+        </div>
+      <script src="script.js"></script>
+    </body>
+    </html>
